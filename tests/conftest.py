@@ -8,7 +8,7 @@ def browser():
     from selenium.webdriver.chrome.options import Options
 
     options = Options()
-    options.add_experimental_option('prefs', {'intl.accept_languages': 'en'})
+    # options.add_experimental_option('prefs', {'intl.accept_languages': 'en'})
     print("\nstart browser for test..")
     browser = webdriver.Chrome(options=options)
 
@@ -21,4 +21,18 @@ def browser():
 
     print("\nquit browser..")
     browser.quit()
+
+
+#  парсит данные из командной строки
+def pytest_addoption(parser):
+    # parser.addoption('--browser_name', action='store', default="chrome",
+    #                  help="Choose browser: chrome or firefox")
+    parser.addoption('--language', action='store', default="de",
+                     help="Choose language: de, ru or en")
+# , default="en",
+
+
+@pytest.fixture
+def driver(request):
+    language = request.config.getoption('--language')
 
