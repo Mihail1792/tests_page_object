@@ -1,6 +1,10 @@
+"""
+Базовый класс, в котором опысываются методы взаимодействия для всех страниц сайта,
+по типу прокидывания урлов, проверки наличия элемента, таймаутов ожидания и пр.
+"""
+
 from selenium.common.exceptions import NoSuchElementException
 # from selenium.common.exceptions import имя_исключения
-
 
 
 class BasePage:
